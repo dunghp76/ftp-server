@@ -1,0 +1,102 @@
+Cài đặt web mới từ đầu
+
+sudo apachectl configtest
+sudo service httpd restart
+sudo certbot --apache -d redmine.monotos.biz --agree-tos -m daitovntrong -n --redirect --must-staple --rsa-key-size 4096 --hsts --uir --staple-ocsp
+1.đưa source code lên
+sudo yum install git
+-zip chọn các file trong folder, unzip trên linux [ unzip seikatsu.zip ==>sẽ đỗ ra cung cấp thư mục] . đứng ngoài thư mục vendor click lên zip lại.
+php artisan cache:clear & php artisan config:clear & php artisan route:clear
+php artisan config:clear
+php artisan route:clear
+
+Nếu lỗi (Your Composer dependencies require a PHP version )
+[composer.json]
+"config": {
+
+"platform-check": false
+    },
+composer dump-autoload
+2.gắng domain https://my.freenom.com/clientarea.php?managedns=dvntest.tk&domainid=1113880406
+sudo nano /etc/httpd/conf.d/real.conf
+#start sekatsu
+
+
+#start sekatsu
+<VirtualHost *:80>
+DocumentRoot "/var/www/product.ec-life.co.jp/source_real/public" 
+ServerName product.ec-life.co.jp
+
+#ErrorLog "/var/www/domains/sekatsu/server_log/sekatsuerror_log" 
+ #       CustomLog "/var/www/domains/sekatsu/server_log/sekatsuaccess_log" comb$
+        <Directory "/var/www/product.ec-life.co.jp/source_real/public">
+                DirectoryIndex index.html index.php
+                Options FollowSymLinks
+                AllowOverride All
+                Require all granted
+        </Directory>
+</VirtualHost>
+#end sekatsu
+
+#end sekatsu
+sudo apachectl configtest
+sudo service httpd restart
+
+Cài đặt apache php
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd
+sudo systemctl start httpd
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
+3.cài ssl letscript https
+
+cài đặt letscript ec2
+https://certbot.eff.org/lets-encrypt/otherpip-apache
+sudo yum update (option)
+sudo yum install augeas-libs
+sudo yum install mod_ssl
+sudo yum install python3 python3-venv libaugeas0
+sudo python3 -m venv /opt/certbot/
+sudo /opt/certbot/bin/pip install --upgrade pip
+sudo /opt/certbot/bin/pip install certbot certbot-apache
+sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+sudo certbot --apache
+
+lệnh tạo domain httsp
+sudo certbot --apache -d product.ec-life.co.jp
+lệnh renew domain httsp
+sudo certbot renew --dry-run
+
+--->fix loi ko khoi dong duoc apache
+apachectl configtest
+xem log /var/log/httpd
+-------------Remove apache
+)Query and list all the Apache rpm packages
+rpm -qa "httpd"
+2)List the installed Apache packages.
+yum list installed "httpd*"
+3)Remove the installed httpd packages
+yum remove "httpd*" -y
+4)Remove the Document root directory
+rm -rf /var/www
+5)Remove the Configuration Files
+rm -rf /etc/httpd
+6)Remove the Supporing files and httpd modules
+rm -rf /usr/lib64/httpd
+7)delete the Apache user
+userdel -r apache
+8)check the apache user in /etc/passwd location.
+grep "apache" /etc/passwd
+9)Check the status of Apache server
+systemctl status httpd
+remove all php
+sudo yum erase php php-pear php-mysql php-cli php-common
+
+----zip unzip
+linux
+unzip /var/www/domains/honten/shop/zip/shop2022.zip -d /var/www/domains/honten/shop/zip/unzip
+
+---
+Api call bị lỗi https
+https://aws.amazon.com/premiumsupport/knowledge-center/ec2-expired-certificate/
+check root ca
+echo | openssl s_client -servername nk2.diyfactory.jp -connect nk2.diyfactory.jp:443 | openssl x509 -noout -dates
