@@ -1,0 +1,9 @@
+cài đặt ftp server và tạo user
+
+sudo yum install vsftpd
+sudo useradd -m testuser
+
+sudo passwd testuser
+
+note: /etc/vsftpd/vsftpd.conf
+https://phoenixnap.com/kb/install-ftp-server-on-ubuntu-vsftpd
