@@ -1,0 +1,5 @@
+nano /etc/ssh/sshd_config
+override default of no subsystems
+Subsystem sftp /usr/libexec/openssh/sftp-server
+vào winscp /Advanced site setting
+environment/sftp trong sftp server gõ sudo su -c /usr/libexec/openssh/sftp-server
