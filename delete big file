@@ -1,0 +1,7 @@
+project scrap
+cd /data/scraping/storage/logs
+sudo du --summarize --human-readable
+tim 10 file hoặc thư mục chiếm dung lượng lớn
+du -a /data/scraping/storage/logs/batches | sort -n -r | head -n 10
+xóa các file trong folder
+sudo rm -v /data/scraping/storage/logs/batches/ProcessRankListAndParse/*
