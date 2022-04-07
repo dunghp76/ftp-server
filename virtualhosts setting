@@ -1,0 +1,26 @@
+create folder 
+/var/www/html/staging
+2.writing host info
+#start sekatsu
+<VirtualHost *:80>
+DocumentRoot "/var/www/html/staging" 
+ServerName product.ec-life.co.jp
+
+#ErrorLog "/var/www/domains/sekatsu/server_log/sekatsuerror_log" 
+ #       CustomLog "/var/www/domains/sekatsu/server_log/sekatsuaccess_log" comb$
+        <Directory "/var/www/html/staging">
+                DirectoryIndex index.html index.php
+                Options FollowSymLinks
+                AllowOverride All
+                Require all granted
+        </Directory>
+</VirtualHost>
+#end sekatsu
+3.open terminal
+3.1run sudo nano /etc/httpd/conf.d/staging.conf
+3.2 paste No 2
+3.3Click Ctrl + X
+3.4 Select Yes
+3.5 Run
+sudo apachectl configtest
+sudo service httpd restart
