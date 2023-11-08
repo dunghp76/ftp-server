@@ -2,12 +2,12 @@ Muốn chuyển GIT mà có cả lịch sử của GIT cũ sang GIT mới ta là
 1.create folder
 2.sourceTree open
 open terminal
-cd /c/Users/figo/Desktop/hiroka/ec_cube_mirror
+cd /c/Users/figo/Desktop/figo/ec_cube_mirror
 (note use /)
 3.run
-git clone --mirror git@104.199.232.250:daito/ygk.git
+git clone --mirror git@104.xxx.xxx.xxx:figo/ygk.git
 4.cd ygk.git
 5.run
-git push --mirror git@github.com:HIROKA-inc/ec-cube.git
+git push --mirror git@github.com:figo-inc/ec-cube.git
 
 Sau đó niệm câu thần chú alibaba vào nhà ngừi ta dắt xe đạp ra
