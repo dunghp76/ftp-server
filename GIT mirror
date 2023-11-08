@@ -9,5 +9,5 @@ git clone --mirror git@104.xxx.xxx.xxx:figo/ygk.git
 4.cd ygk.git
 5.run
 git push --mirror git@github.com:figo-inc/ec-cube.git
-
+Nếu git@ ko dc thì dùng https
 Sau đó niệm câu thần chú alibaba vào nhà ngừi ta dắt xe đạp ra
