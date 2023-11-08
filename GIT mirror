@@ -1,0 +1,13 @@
+Muốn chuyển GIT mà có cả lịch sử của GIT cũ sang GIT mới ta làm như sau
+1.create folder
+2.sourceTree open
+open terminal
+cd /c/Users/figo/Desktop/hiroka/ec_cube_mirror
+(note use /)
+3.run
+git clone --mirror git@104.199.232.250:daito/ygk.git
+4.cd ygk.git
+5.run
+git push --mirror git@github.com:HIROKA-inc/ec-cube.git
+
+Sau đó niệm câu thần chú alibaba vào nhà ngừi ta dắt xe đạp ra
